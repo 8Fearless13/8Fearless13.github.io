@@ -797,27 +797,6 @@ function initparallax() {
     }
     if (trueMobile) $(".bgvid , .background-vimeo , .background-youtube-wrapper ").remove();
 }
-    //   instagram ------------------	
-    var actoket = $('#insta-content').data("instatoken");
-    var token = actoket,
-        num_photos = 6;
-    $.ajax({
-        url: 'https://api.instagram.com/v1/users/self/media/recent',
-        dataType: 'jsonp',
-        type: 'GET',
-        data: {
-            access_token: token,
-            count: num_photos
-        },
-        success: function (data) {
-            for (x in data.data) {
-                $('#insta-content').append('<a target="_blank" href="' + data.data[x].link + '"><img src="' + data.data[x].images.low_resolution.url + '"></a>');
-            }
-        },
-        error: function (data) {
-            console.log(data);
-        }
-    });
     //   audio player ------------------
     if ($(".audio-player-wrap").length > 0) {
         function initAudiolist() {
